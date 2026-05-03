@@ -1,0 +1,76 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  background: #fafaf9;
+  color: #1c1917;
+}
+
+@layer utilities {
+  .glass {
+    background: rgba(255,255,255,0.88);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255,255,255,0.6);
+  }
+  .glass-dark {
+    background: rgba(28,25,23,0.65);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255,255,255,0.08);
+  }
+  .gradient-text {
+    background: linear-gradient(135deg, #92400e, #b45309, #d97706);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .gradient-hero {
+    background: linear-gradient(135deg, #1c1917 0%, #292524 50%, #1c1917 100%);
+  }
+  .gradient-card {
+    background: linear-gradient(135deg, #78716c 0%, #57534e 100%);
+  }
+  .card-hover {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  .card-hover:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 16px 32px rgba(0,0,0,0.10);
+  }
+  .input-field {
+    @apply w-full px-4 py-3 bg-white border border-stone-200 rounded-xl text-sm text-stone-800 placeholder-stone-400 focus:outline-none focus:ring-2 focus:ring-stone-400 focus:border-transparent transition-all duration-200;
+  }
+  .btn-primary {
+    @apply bg-stone-800 text-white px-6 py-3 rounded-xl font-semibold text-sm hover:bg-stone-700 active:scale-95 transition-all duration-150 shadow-md;
+  }
+  .btn-secondary {
+    @apply bg-white text-stone-700 border-2 border-stone-200 px-6 py-3 rounded-xl font-semibold text-sm hover:bg-stone-50 active:scale-95 transition-all duration-150;
+  }
+  .section-card {
+    @apply bg-white rounded-2xl shadow-sm border border-stone-100 p-6;
+  }
+  .badge-neutral  { @apply bg-stone-100 text-stone-600 border border-stone-200; }
+  .badge-amber    { @apply bg-amber-50  text-amber-700  border border-amber-200; }
+  .badge-teal     { @apply bg-teal-50   text-teal-700   border border-teal-200; }
+  .badge-warn     { @apply bg-orange-50 text-orange-700 border border-orange-200; }
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.animate-fade-in-up { animation: fadeInUp 0.45s ease forwards; }
+
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #f5f5f4; }
+::-webkit-scrollbar-thumb { background: #d6d3d1; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #a8a29e; }
