@@ -9,22 +9,7 @@ const seedAdmin = require('./config/seedAdmin');
 
 connectDB().then(() => seedAdmin());
 
-const allowedOrigins = [
-  'http://localhost:3000',
-  'https://smart-ngo-nine.vercel.app',
-  process.env.CLIENT_URL,
-].filter(Boolean);
-
-app.use(cors({
-  origin: function (origin, callback) {
-    if (!origin || allowedOrigins.includes(origin)) {
-      callback(null, true);
-    } else {
-      callback(null, true); // allow all for now
-    }
-  },
-  credentials: true,
-}));
+app.use(cors());
 app.use(express.json());
 
 app.use('/api/auth', require('./routes/auth'));
